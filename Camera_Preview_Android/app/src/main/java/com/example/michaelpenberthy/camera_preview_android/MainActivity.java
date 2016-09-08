@@ -2,6 +2,7 @@ package com.example.michaelpenberthy.camera_preview_android;
 
 import android.Manifest;
 import android.content.Context;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.SurfaceTexture;
 import android.hardware.camera2.CameraAccessException;
@@ -22,6 +23,8 @@ import android.util.Log;
 import android.util.Size;
 import android.view.Surface;
 import android.view.TextureView;
+import android.view.View;
+import android.widget.Button;
 import android.widget.Toast;
 
 import java.util.Arrays;
@@ -49,6 +52,14 @@ public class MainActivity extends AppCompatActivity {
         textureView = (TextureView) findViewById(R.id.camera_feed);
         assert textureView != null;
         textureView.setSurfaceTextureListener(textureListener);
+
+        ((Button)findViewById(R.id.btn_search)).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), Main2Activity.class);
+                startActivity(intent);
+            }
+        });
     }
     @Override
     protected void onResume() {
@@ -63,6 +74,7 @@ public class MainActivity extends AppCompatActivity {
     }
     @Override
     protected void onPause() {
+        closeCamera();
         Log.e(TAG, "onPause");
         stopBackgroundThread();
         super.onPause();
@@ -160,6 +172,18 @@ public class MainActivity extends AppCompatActivity {
             e.printStackTrace();
         }
     }
+
+    private void closeCamera() {
+        if (null != cameraSessions) {
+            cameraSessions.close();
+            cameraSessions = null;
+        }
+        if (null != cameraDevice) {
+            cameraDevice.close();
+            cameraDevice = null;
+        }
+    }
+
     protected void updatePreview() {
         if(null == cameraDevice) {
             Log.e(TAG, "updatePreview error, return");
