@@ -49,7 +49,7 @@ import java.util.List;
 
 
 public class CameraPreviewFragment extends Fragment
-        implements View.OnClickListener, FragmentCompat.OnRequestPermissionsResultCallback {
+        implements FragmentCompat.OnRequestPermissionsResultCallback {
 
 
     private static final int REQUEST_CAMERA_PERMISSION = 1;
@@ -202,7 +202,6 @@ public class CameraPreviewFragment extends Fragment
 
     @Override
     public void onViewCreated(final View view, Bundle savedInstanceState) {
-        view.findViewById(R.id.picture).setOnClickListener(this);
         textureView = (AutoFitTextureView) view.findViewById(R.id.camera_feed);
     }
 
@@ -314,7 +313,7 @@ public class CameraPreviewFragment extends Fragment
         }
     }
 
-    
+
     private void openCamera(int width, int height) {
         if (ContextCompat.checkSelfPermission(getActivity(), Manifest.permission.CAMERA)
                 != PackageManager.PERMISSION_GRANTED) {
@@ -414,28 +413,6 @@ public class CameraPreviewFragment extends Fragment
             e.printStackTrace();
         }
     }
-
-    @Override
-    public void onClick(View view) {
-        switch (view.getId()) {
-            case R.id.picture: {
-                Intent intent = new Intent(getActivity(), Main3Activity.class);
-                startActivity(intent);
-                break;
-            }
-            case R.id.info: {
-                Activity activity = getActivity();
-                if (null != activity) {
-                    new AlertDialog.Builder(activity)
-                            .setMessage("Intro")
-                            .setPositiveButton(android.R.string.ok, null)
-                            .show();
-                }
-                break;
-            }
-        }
-    }
-
 
 
 

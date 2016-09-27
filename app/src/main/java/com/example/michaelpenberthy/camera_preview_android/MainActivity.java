@@ -52,14 +52,6 @@ public class MainActivity extends AppCompatActivity {
         textureView = (TextureView) findViewById(R.id.camera_feed);
         assert textureView != null;
         textureView.setSurfaceTextureListener(textureListener);
-
-        ((Button)findViewById(R.id.btn_search)).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), Main2Activity.class);
-                startActivity(intent);
-            }
-        });
     }
     @Override
     protected void onResume() {

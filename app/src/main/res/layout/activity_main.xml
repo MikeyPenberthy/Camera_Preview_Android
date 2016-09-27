@@ -3,24 +3,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#f16565"
+    android:background="#333333"
     tools:context="com.example.michaelpenberthy.camera_preview_android.MainActivity">
 
     <TextureView
         android:id="@+id/camera_feed"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/btn_search"
         android:layout_alignParentTop="true"/>
-    <Button
-        android:id="@+id/btn_search"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="16dp"
-        android:layout_marginTop="16dp"
-        android:background="@android:color/transparent"
-        android:textColor="#f0f0f0"
-        android:text="@string/search" />
 </RelativeLayout>

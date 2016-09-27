@@ -6,28 +6,8 @@
 
     <com.example.michaelpenberthy.camera_preview_android.AutoFitTextureView
         android:id="@+id/camera_feed"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"/>
-
-
-    <FrameLayout
-        android:id="@+id/control"
         android:layout_width="match_parent"
-        android:layout_height="112dp"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentStart="true"
-        android:background="#666">
+        android:layout_height="match_parent"/>
 
-        <Button
-            android:id="@+id/picture"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text="picute" />
-
-
-    </FrameLayout>
 
 </FrameLayout>
